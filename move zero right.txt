@@ -1,0 +1,36 @@
+
+Q)Move Zeroes to right
+sample input : 12, 0, 13, 0,15
+sample output : 12,13,15,0,0
+
+Sol:
+
+#include <iostream>
+
+using namespace std;
+
+void moveZerosToRight(int arr[], int n) {
+    for (int i = 0, nonZeroIndex = 0; i < n; ++i)
+        if (arr[i] != 0)
+            swap(arr[i], arr[nonZeroIndex++]);
+}
+
+int main() {
+    const int maxSize = 100;
+    int arr[maxSize], n;
+
+    cout << "Enter the size of the array: ";
+    cin >> n;
+
+    cout << "Enter the elements of the array: ";
+    for (int i = 0; i < n; ++i)
+        cin >> arr[i];
+
+    moveZerosToRight(arr, n);
+
+    cout << "Sample Output: ";
+    for (int i = 0; i < n; ++i)
+        cout << arr[i] << (i < n - 1 ? "," : "");
+
+    return 0;
+}
